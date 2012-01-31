@@ -1,10 +1,10 @@
 #!/bin/bash
-#!/bin/bash
+
 while [ ! -t 1 ]
 do
-	tags=`herbstclient tag_status $1`
+  tags=`herbstclient tag_status $1`
   echo $tags
-  sleep 1
+  herbstclient -w tag > /dev/null
 done
 
 echo $1
