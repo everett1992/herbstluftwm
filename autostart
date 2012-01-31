@@ -27,6 +27,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn sakura
 hc keybind $Mod-d spawn dmenu_run
+hc keybind $Mod-Control-r spawn $dir/rename_tag
 
 # tags
 TAG_NAMES=( {1..9} )
@@ -41,6 +42,11 @@ for i in ${!TAG_NAMES[@]} ; do
         hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
     fi
 done
+
+# it's quite possible i've misuderstood something fundamental about herb
+# this script removes the extra tags added when you reload autostart
+# and readds bindings to any tags you renamed
+sh $dir/reset_bindings $Mod
 
 # layouting
 hc keybind $Mod-r remove
