@@ -28,6 +28,7 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn sakura
 hc keybind $Mod-d spawn dmenu_run
 hc keybind $Mod-Control-r spawn $dir/rename_tag
+hc keybind $Mod-0 spawn $dir/padding
 
 # tags
 TAG_NAMES=( {1..9} )
@@ -71,6 +72,7 @@ hc mousebind $Mod-Button3 resize
 
 # focus
 hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-slash   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
