@@ -1,0 +1,23 @@
+#!/bin/bash
+dir=/home/caleb/.config/herbstluftwm/
+
+# get current tag
+# this should be simplified
+tag=`herbstclient list_monitors | grep [FOCUS] | egrep \".*\" -o | sed 's/.\(.*\)./\1/'`
+use=`herbstclient list_keybinds | egrep use[[:space:]]*$tag`
+move=`herbstclient list_keybinds | egrep move[[:space:]]*$tag`
+new_tag=`dmenu < $dir/cache/tags`
+echo $new_tag > $dir/cache/tags.tmp
+echo $use
+echo $move
+
+
+# cacheing stuff
+for name in `cat $dir/cache/tags`
+do
+	if [ "$new_tag" != "$name" ] ; then
+		echo $name >> $dir/cache/tags.tmp
+	fi
+done
+mv $dir/cache/tags.tmp $dir/cache/tags
+

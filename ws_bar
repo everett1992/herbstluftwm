@@ -1,0 +1,11 @@
+#!/bin/bash
+#!/bin/bash
+while [ ! -t 1 ]
+do
+	tags=`herbstclient tag_status $1`
+  echo $tags
+  sleep 1
+done
+
+echo $1
+exit

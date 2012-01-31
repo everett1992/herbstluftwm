@@ -1,7 +1,20 @@
 #!/bin/bash
+# xrandr_set_monitor.sh
+
+###                                                 ###
+## Detects xrandr monitors and mimics them in herbie ##
+###                                                 ###
+
+dir=~/.config/herbstluftwm/
+
+function hc() {
+    herbstclient "$@"
+}
+
 N=0
 for screen in `xrandr -q | egrep '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o`
 do
+  # add screens geometry to the array
   screens[$N]=$screen
   let "N= $N + 1"
 done 

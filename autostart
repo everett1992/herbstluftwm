@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # this is a simple config for herbstluftwm
+dir=~/.config/herbstluftwm/
 
 function hc() {
     herbstclient "$@"
@@ -9,11 +10,12 @@ function hc() {
 hc emit_hook reload
 
 
-
 #monitors
-sh ~/.configs/herbstluftwm/xrandr_monitor.sh
-awsetbg backgrounds/ -r
+sh $dir/xrandr_monitor.sh
+awsetbg ~/.backgrounds/ -r
 
+# Bars
+sh $dir/bar.sh
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -23,7 +25,7 @@ Mod=Mod4
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn lxterminal
+hc keybind $Mod-Return spawn sakura
 hc keybind $Mod-d spawn dmenu_run
 
 # tags
@@ -91,7 +93,7 @@ hc set window_border_normal_color '#444444'
 # rules
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
-hc rule focus=on # normally do not focus new clients
+hc rule focus=on # normally do focus new clients
 # give focus to most common terminals
 hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
