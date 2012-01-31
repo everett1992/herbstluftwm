@@ -1,0 +1,7 @@
+A collection of scripts and configs for herbsluftwm
+
+requires:
+	herbsluftwm
+	i3status - change to conky
+	stalonetray
+	dzen2

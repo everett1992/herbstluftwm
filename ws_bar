@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while true
+do
+	tags=`herbstclient tag_status`
+	echo $tags
+done
