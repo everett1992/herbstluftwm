@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dir=~/.config/herbstluftwm/
+
+function hc() {
+    herbstclient "$@"
+}
+
+hc set window_gap `echo -e "0\n6\n10\n16\n" | dmenu`
