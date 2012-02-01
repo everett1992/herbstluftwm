@@ -8,6 +8,8 @@ requires:
   iceland font ( found in google fonts, you can change this to what ever you want in bar.sh
   awsetbg (this is only used in autostart to set the background, easily replaceable)
 
+colors are similar to the molokai theme for vim/sublime
+
 
 rename_tag
   launches a dmenu dialog where you can input a new name for
