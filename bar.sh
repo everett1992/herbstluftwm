@@ -6,6 +6,7 @@
 ## Make sure to run after xrandr_set_monitor.sh    ##
 ###                                               ###
 
+font="-*-dejavu sans mono-medium-r-*-*-*-*-*-*-*-*-*-*"
 dir=~/.config/herbstluftwm/
 
 function hc() {

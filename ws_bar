@@ -2,8 +2,21 @@
 
 while [ ! -t 1 ]
 do
+  ws=""
   tags=`herbstclient tag_status $1`
-  echo $tags
+  for tag in $tags ; do
+    char=${tag:0:1}
+    tag=${tag:1}
+    if [ "$char" == ":" ] ; then
+      tag="^bg(#444444) $tag "
+    elif [ "$char" == "#" ] || [ "$char" == "+" ]; then
+      tag="^bg(#990000) $tag "
+    elif [ "$char" == '.' ] ; then
+      tag="^bg(#222222) $tag "
+    fi
+    ws="$ws$tag"
+  done
+  echo "$ws^bg(#222222)|"
   herbstclient -w tag > /dev/null
 done
 
