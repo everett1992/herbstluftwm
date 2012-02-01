@@ -12,7 +12,7 @@ hc emit_hook reload
 
 #monitors
 sh $dir/xrandr_monitor.sh
-awsetbg ~/.backgrounds/ -r
+awsetbg ~/backgrounds/ -r
 
 # Bars
 sh $dir/bar.sh
@@ -89,14 +89,14 @@ hc keybind $Mod-Shift-l shift right
 hc set focus_follows_mouse 1
 
 # colors
-hc set frame_border_active_color '#440000'
-hc set frame_border_normal_color '#444444'
+hc set frame_border_active_color '#2c2c2c'
+hc set frame_border_normal_color '#121212'
 hc set frame_bg_normal_color '#000000'
 hc set frame_bg_active_color '#000000'
 hc set frame_border_width 2
 hc set window_border_width 2
 hc set frame_bg_transparent 1
-hc set window_border_active_color '#990000'
+hc set window_border_active_color '#cf015e'
 hc set window_border_normal_color '#444444'
 
 # rules

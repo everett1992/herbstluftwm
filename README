@@ -2,6 +2,6 @@ A collection of scripts and configs for herbsluftwm
 
 requires:
 	herbsluftwm
-	i3status - change to conky
+	i3status - ( I should change this to conky, all it's doing is getting the time)
 	stalonetray
-	dzen2
+	dzen3-svn ( this is the name of the AUR package, it's the latest dzen with XMP and click support.)
