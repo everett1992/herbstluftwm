@@ -6,7 +6,7 @@
 ## Make sure to run after xrandr_set_monitor.sh    ##
 ###                                               ###
 
-font="iceberg"
+font="iceland"
 dark_bg="#121212"
 light_bg="#2c2c2c"
 light_light="#5f5f5f"
@@ -28,7 +28,7 @@ do
   let "width= ${geometry[2]} - 130"
   height=${geometry[3]}
   hc pad $i 16
-  sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y &
+  sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y -fn $font &
   let "x= $x + $width"
   i3status -c $dir/i3status.conf | dzen2 -bg $light_bg  -ta r -h 16 -x $x -y $y -fn $font &
   if [ "$i" -eq "0" ] ; then

@@ -11,8 +11,8 @@ hc emit_hook reload
 
 
 #monitors
-sh $dir/xrandr_monitor.sh
-awsetbg ~/backgrounds/ -r
+sh $dir/xrandr_set_monitor.sh
+awsetbg ~/backgrounds/ -r # pick a random background
 
 # Bars
 sh $dir/bar.sh

@@ -2,6 +2,32 @@ A collection of scripts and configs for herbsluftwm
 
 requires:
 	herbsluftwm
-	i3status - ( I should change this to conky, all it's doing is getting the time)
+	i3status ( I should change this to conky, all it's doing is getting the time)
 	stalonetray
 	dzen3-svn ( this is the name of the AUR package, it's the latest dzen with XMP and click support.)
+  iceland font ( found in google fonts, you can change this to what ever you want in bar.sh
+  awsetbg (this is only used in autostart to set the background, easily replaceable)
+
+
+rename_tag
+  launches a dmenu dialog where you can input a new name for
+  the current tag. Keybindings are updated so that tags are 
+  still accessed by number ( the 2nd tag is accessed with 2,
+  the 5th by 5 regardless of the name )
+  remembers names given to tags, lists them in order of last used.
+
+reset_bindings
+  fixes keybindings on reload.
+  
+bar.sh
+  adds a clock and workspace switcher to each workspace
+  adds a system tray to the first monitor
+  for dzen to be clickable you must have the newest version of dzen (dzen-svn in the AUR)
+  if you do now want this remove the ^ca line in ws_bar
+
+xrandr_set_monitor.sh
+  This parses xrandr output for each monitor, then makes one herb monitor for each found.
+
+padding
+  dmenu dialog to set the window padding
+

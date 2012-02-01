@@ -12,14 +12,16 @@ bg_occup="#1c1c1c"
 
 while [ ! -t 1 ]
 do
-  ws="^fn(iceland)"
+  ws=""
   tags=`herbstclient tag_status $1`
   for tag in $tags ; do
     char=${tag:0:1} # get tag type
     tag=${tag:1}    # get tag name
+    
+    tag=" $tag " # padding
 
-    #clickable?
-    tag="^ca(1, herbstclient use $tag) $tag ^ca()" # note the spaces, they are for padding
+    # clickable?
+    tag="^ca(1, herbstclient use $tag)$tag^ca()" 
 
     # set tag colors
     if [ "$char" == ":" ] ; then # occupied unfocused tag
