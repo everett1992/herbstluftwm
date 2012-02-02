@@ -1,9 +1,40 @@
 #!/bin/bash
 
+###                                                            ###
+## This script populates the info for the workspace bar.        ##
+## It updates whenever a hook with the word tag in it is emited ##
+## currently supports clicking on tag names to switch tags      ##
+###                                                            ###
+
+bg_empty="#2c2c2c"
+bg_focus="#cf015e"
+bg_occup="#1c1c1c"
+
 while [ ! -t 1 ]
 do
+  ws=""
   tags=`herbstclient tag_status $1`
-  echo $tags
+  for tag in $tags ; do
+    char=${tag:0:1} # get tag type
+    tag=${tag:1}    # get tag name
+    
+    tag=" $tag " # padding
+
+    # clickable?
+    tag="^ca(1, herbstclient use $tag)$tag^ca()" 
+
+    # set tag colors
+    if [ "$char" == ":" ] ; then # occupied unfocused tag
+      tag="^bg($bg_occup)$tag"
+    elif [ "$char" == "#" ] || [ "$char" == "+" ]; then # focused tags
+      tag="^bg($bg_focus)$tag"
+    elif [ "$char" == '.' ] ; then # empty tag
+      tag="^bg($bg_empty)$tag"
+    fi
+
+    ws="$ws$tag"
+  done
+  echo "$ws^bg($bg_empty)"
   herbstclient -w tag > /dev/null
 done
 
