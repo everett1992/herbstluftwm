@@ -21,7 +21,8 @@ use=`hc list_keybinds | egrep use[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 move=`hc list_keybinds | egrep move[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 
 # get the name of the new tag
-new_tag=`dmenu < $dir/cache/tags`
+new_tag=`dmenu -fn iceland -nb '#2c2c2c' -sb '#56e202' -sf '#000000' < $dir/cache/tags`
+
 if [ "$new_tag" != "" ] ; then
   echo $new_tag > $dir/cache/tags.tmp
 

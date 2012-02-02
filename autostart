@@ -26,7 +26,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn sakura
-hc keybind $Mod-d spawn dmenu_run
+hc keybind $Mod-d spawn dmenu_run -fn iceland -nb '#2c2c2c' -sb '#56e202' -sf '#000000'
 hc keybind $Mod-Control-r spawn $dir/rename_tag
 hc keybind $Mod-0 spawn $dir/padding
 
