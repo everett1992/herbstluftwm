@@ -6,21 +6,32 @@
 ## currently supports clicking on tag names to switch tags      ##
 ###                                                            ###
 
-bg_empty="#2c2c2c"
-bg_focus="#cf015e"
-bg_occup="#1c1c1c"
+bg_empty="#2c2c2c" # light grey
+bg_focus="#cf015e" # pink
+bg_occup="#1c1c1c" # dark grey
 
-while [ ! -t 1 ]
+while [ ! -t 1 ] # close if not piped anywhere, or pipe is exited
 do
   ws=""
   tags=`herbstclient tag_status $1`
+  N=1
   for tag in $tags ; do
     char=${tag:0:1} # get tag type
     tag=${tag:1}    # get tag name
     
-    tag=" $tag " # padding
+	# use this if you dont want numbered tags
+	#tag=" $tag " # padding
 
-    # clickable?
+	# use this if you do want numbered tags
+	if [ "$N" == "$tag" ] ; then
+		tag=" $tag " # padding
+	else
+		tag=" $N: $tag " # padding
+	fi
+
+    # Comment this out if your dzen doesnt support clickable areas
+	# if your workspace bar is filled with junk comment this out
+	# or download the newest version of dzen (dzen-svn in the AUR)
     tag="^ca(1, herbstclient use $tag)$tag^ca()" 
 
     # set tag colors
@@ -33,9 +44,10 @@ do
     fi
 
     ws="$ws$tag"
+	let "N= $N + 1"
   done
   echo "$ws^bg($bg_empty)"
-  herbstclient -w tag > /dev/null
+  herbstclient -w tag > /dev/null # wait for a tag hook to update again
 done
 
 echo $1

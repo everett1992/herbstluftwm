@@ -6,7 +6,7 @@
 ## Make sure to run after xrandr_set_monitor.sh    ##
 ###                                               ###
 
-font="iceland"
+font="iceland-11"
 dark_bg="#121212"
 light_bg="#2c2c2c"
 light_light="#5f5f5f"
@@ -25,7 +25,7 @@ do
   geometry=( $(hc monitor_rect $i ) )
   x=${geometry[0]}
   y=${geometry[1]}
-  let "width= ${geometry[2]} - 130"
+  let "width= ${geometry[2]} - 100"
   height=${geometry[3]}
   hc pad $i 16
   sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y -fn $font &
@@ -34,6 +34,6 @@ do
   if [ "$i" -eq "0" ] ; then
     let "x=$x - 20"
     sleep .1
-    stalonetray -i 16 -bg $light_bg --geometry 1x1+$x+$y --grow-gravity E &
+    stalonetray -i 16 -bg $light_bg --geometry 1x1+$x+$y --grow-gravity E --dockapp-mode simple &
   fi
 done
