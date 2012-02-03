@@ -1,4 +1,11 @@
 #!/bin/bash
+# autostart
+
+# starting to breakout the theme config vareables
+font="iceland-11"
+bg_dark="#2c2c2c"
+green="#56e202"
+terminal="roxterm"
 
 # this is a simple config for herbstluftwm
 dir=~/.config/herbstluftwm/
@@ -11,11 +18,12 @@ hc emit_hook reload
 
 
 #monitors
-sh $dir/xrandr_set_monitor.sh
+sh $dir/xrandr_set_monitor.sh # if xrandr is set will make one screen for each monitor
 awsetbg ~/backgrounds/ -r # pick a random background
 
 # Bars
-sh $dir/bar.sh
+sh $dir/bar.sh # will add a clock and workspace bar to every screen
+               # and a stalone tray for the main screen (the 0th screen)
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -25,9 +33,9 @@ Mod=Mod4
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-Return spawn sakura
-hc keybind $Mod-d spawn dmenu_run -fn iceland -nb '#2c2c2c' -sb '#56e202' -sf '#000000'
-hc keybind $Mod-Control-r spawn $dir/rename_tag
+hc keybind $Mod-Return spawn $terminal
+hc keybind $Mod-d spawn dmenu_run -fn $font -nb $bg_dark -sb $green -sf '#000000'
+hc keybind $Mod-Control-r spawn $dir/rename_tag # spawns dmenu to change name of tag
 hc keybind $Mod-0 spawn $dir/padding
 
 # tags
