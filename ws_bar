@@ -1,4 +1,5 @@
 #!/bin/bash
+# ws_bar
 
 ###                                                            ###
 ## This script populates the info for the workspace bar.        ##

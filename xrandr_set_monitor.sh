@@ -11,24 +11,25 @@ function hc() {
     herbstclient "$@"
 }
 
+# add screen geometry to array
 N=0
-for screen in `xrandr -q | egrep '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o`
-do
-  # add screens geometry to the array
+for screen in `xrandr -q | egrep '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o` ; do
   screens[$N]=$screen
   let "N= $N + 1"
 done 
 
+# add every herb monitor to array
 M=0
-for i in `herbstclient list_monitors| egrep '^[0-9]' -o`
-do
+for i in `herbstclient list_monitors| egrep '^[0-9]' -o` ; do
   hbscreens[$M]=$i
   let "M= $M + 1"
 done
 
 Y=0
-while true
-do
+
+
+# map a herb screen to every monitor. remove any extra herb screens
+while true ; do
   if [ -n "${screens[$Y]}" ] && [ -n "${hbscreens[$Y]}" ] ; then
     echo herbstclient move_monitor ${hbscreens[$Y]} ${screens[$Y]}
     herbstclient move_monitor ${hbscreens[$Y]} ${screens[$Y]}
