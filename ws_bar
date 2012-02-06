@@ -10,44 +10,42 @@
 bg_empty="#2c2c2c" # light grey
 bg_focus="#cf015e" # pink
 bg_occup="#1c1c1c" # dark grey
+monitor=$1
 
 while [ ! -t 1 ] # close if not piped anywhere, or pipe is exited
 do
   ws=""
-  tags=`herbstclient tag_status $1`
+  tags=`herbstclient tag_status $monitor`
   N=1
   for tag in $tags ; do
     char=${tag:0:1} # get tag type
     tag=${tag:1}    # get tag name
-    
-	# use this if you dont want numbered tags
-	#tag=" $tag " # padding
-
-	# use this if you do want numbered tags
-	if [ "$N" == "$tag" ] ; then
-		tag=" $tag " # padding
-	else
-		tag=" $N: $tag " # padding
-	fi
-
-    # Comment this out if your dzen doesnt support clickable areas
-	# if your workspace bar is filled with junk comment this out
-	# or download the newest version of dzen (dzen-svn in the AUR)
-    tag="^ca(1, herbstclient use $tag)$tag^ca()" 
+    name=$tag
 
     # set tag colors
     if [ "$char" == ":" ] ; then # occupied unfocused tag
-      tag="^bg($bg_occup)$tag"
+      tag="^fg(#87FF00) $tag ^fg()"
     elif [ "$char" == "#" ] || [ "$char" == "+" ]; then # focused tags
-      tag="^bg($bg_focus)$tag"
+      clients=`herbstclient dump $name`
+      if [[ "$clients" == *':0)'* ]] ; then
+        tag="^fg()$tag"
+      else
+        tag="^fg(#87FF00)$tag"
+      fi
+      tag="^fg(#D7005F)[$tag^fg(#D7005F)]^fg()"
     elif [ "$char" == '.' ] ; then # empty tag
-      tag="^bg($bg_empty)$tag"
+      tag="^fg() $tag "
     fi
 
+    # Comment this out if your dzen doesnt support clickable areas
+    # if your workspace bar is filled with junk comment this out
+    # or download the newest version of dzen (dzen-svn in the AUR)
+    tag="^ca(1, herbstclient focus_monitor $monitor && herbstclient use $name)$tag^ca()" 
+
     ws="$ws$tag"
-	let "N= $N + 1"
+    let "N= $N + 1"
   done
-  echo "$ws^bg($bg_empty)"
+  echo "$ws^bg()^fg()"
   herbstclient -w tag > /dev/null # wait for a tag hook to update again
 done
 

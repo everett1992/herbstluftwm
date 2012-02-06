@@ -1,0 +1,15 @@
+#!/bin/bash
+t="`herbstclient dump 4`"
+echo $t
+if [[ "$t" == *':0)'* ]] ; then
+  echo yay
+else
+  echo no
+fi
+t="`herbstclient dump 2`"
+echo $t
+if [[ "$t" == *':0)'* ]] ; then
+  echo yay
+else
+  echo no
+fi

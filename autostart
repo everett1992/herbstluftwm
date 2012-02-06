@@ -95,6 +95,7 @@ hc keybind $Mod-Shift-l shift right
 
 # settings
 hc set focus_follows_mouse 1
+hc set default_frame_layout 1
 
 # colors
 hc set frame_border_active_color '#2c2c2c'
