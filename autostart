@@ -5,7 +5,7 @@
 font="iceland-11"
 bg_dark="#2c2c2c"
 green="#56e202"
-terminal="roxterm"
+terminal="gnome-terminal"
 
 # this is a simple config for herbstluftwm
 dir=~/.config/herbstluftwm/
@@ -42,6 +42,7 @@ hc keybind $Mod-0 spawn $dir/padding
 TAG_NAMES=( {1..9} )
 TAG_KEYS=( {1..9} 0 )
 
+hc set default_frame_layout 1
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
     hc add "${TAG_NAMES[$i]}"
@@ -81,8 +82,8 @@ hc mousebind $Mod-Button3 resize
 # focus
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-slash   cycle_monitor
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
+hc keybind $Mod-Tab         cycle +1
+hc keybind $Mod-Shift-Tab   cycle -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-h focus left
 hc keybind $Mod-j focus down
@@ -95,7 +96,6 @@ hc keybind $Mod-Shift-l shift right
 
 # settings
 hc set focus_follows_mouse 1
-hc set default_frame_layout 1
 
 # colors
 hc set frame_border_active_color '#2c2c2c'
