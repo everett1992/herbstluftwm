@@ -25,7 +25,7 @@ do
     # set tag colors
     if [ "$char" == ":" ] ; then # occupied unfocused tag
       tag="^fg(#87FF00) $tag ^fg()"
-    elif [ "$char" == "#" ] || [ "$char" == "+" ]; then # focused tags
+    elif [ "$char" == "#" ] || [ "$char" == "+" ]; then # tag on this monitor
       clients=`herbstclient dump $name`
       if [[ "$clients" == *':0)'* ]] ; then
         tag="^fg()$tag"
@@ -33,6 +33,16 @@ do
         tag="^fg(#87FF00)$tag"
       fi
       tag="^fg(#D7005F)[$tag^fg(#D7005F)]^fg()"
+    elif [ "$char" == '.' ] ; then # empty tag
+      tag="^fg() $tag "
+    elif [ "$char" == "-" ] || [ "$char" == "%" ]; then # tag on the other monitor
+      clients=`herbstclient dump $name`
+      if [[ "$clients" == *':0)'* ]] ; then
+        tag="^fg()$tag"
+      else
+        tag="^fg(#87FF00)$tag"
+      fi
+      tag="^fg()[$tag^fg()]^fg()"
     elif [ "$char" == '.' ] ; then # empty tag
       tag="^fg() $tag "
     fi

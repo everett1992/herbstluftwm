@@ -30,10 +30,10 @@ do
   hc pad $i 16
   sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y -fn $font &
   let "x= $x + $width"
-  i3status -c $dir/i3status.conf | dzen2 -bg $light_bg  -h 16 -x $x -y $y -fn $font &
+  i3status -c $dir/i3status.conf | dzen2 -bg $light_bg -w 110 -ta l -h 16 -x $x -y $y -fn $font &
   if [ "$i" -eq "0" ] ; then
     let "x=$x - 20"
     sleep .1
-    stalonetray -i 16 -bg $light_bg --geometry 1x1+$x+$y --grow-gravity E --dockapp-mode simple &
+    stalonetray -i 16 -bg $light_bg --geometry 1x1+$x+$y --max-geometry 10x1 --grow-gravity NE --dockapp-mode simple --window-type dock &
   fi
 done
