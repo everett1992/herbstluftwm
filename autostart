@@ -14,6 +14,7 @@ function hc() {
     herbstclient "$@"
 }
 
+hc lock
 hc emit_hook reload
 
 
@@ -37,6 +38,7 @@ hc keybind $Mod-Return spawn $terminal
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $bg_dark -sb $green -sf '#000000'
 hc keybind $Mod-Control-r spawn $dir/rename_tag # spawns dmenu to change name of tag
 hc keybind $Mod-0 spawn $dir/padding
+hc keybind $Mod-m spawn $dir/cmus_controll.sh
 
 # tags
 TAG_NAMES=( {1..9} )
@@ -56,7 +58,7 @@ done
 # it's quite possible i've misuderstood something fundamental about herb
 # this script removes the extra tags added when you reload autostart
 # and readds bindings to any tags you renamed
-sh $dir/reset_bindings $Mod
+sh $dir/reset_bindings $Mod &
 
 # layouting
 hc keybind $Mod-r remove
@@ -102,7 +104,7 @@ hc set frame_border_active_color '#2c2c2c'
 hc set frame_border_normal_color '#121212'
 hc set frame_bg_normal_color '#000000'
 hc set frame_bg_active_color '#000000'
-hc set frame_border_width 2
+hc set frame_border_width 0
 hc set window_border_width 2
 hc set frame_bg_transparent 1
 hc set window_border_active_color '#cf015e'
@@ -119,4 +121,4 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
 
-
+hc unlock

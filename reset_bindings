@@ -8,6 +8,7 @@ function hc() {
 
 Mod=$1
 N=1
+hc lock
 for i in `hc tag_status`
 do
   tag=`echo $i | sed 's/.\(.*\)/\1/'`
@@ -20,4 +21,5 @@ do
   fi
   let "N= $N + 1"
 done
+hc unlock
 
