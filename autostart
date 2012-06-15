@@ -15,6 +15,7 @@ function hc() {
 }
 
 hc emit_hook reload
+hc lock
 
 
 #monitors
@@ -119,4 +120,4 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
 
-
+hc unlock
