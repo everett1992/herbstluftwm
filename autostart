@@ -15,7 +15,9 @@ function hc() {
 }
 
 hc emit_hook reload
+
 hc lock
+hc detect_monitors
 
 
 #monitors
