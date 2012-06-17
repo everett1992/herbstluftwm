@@ -25,12 +25,12 @@ do
   geometry=( $(hc monitor_rect $i ) )
   x=${geometry[0]}
   y=${geometry[1]}
-  let "width= ${geometry[2]} - 110"
+  let "width= ${geometry[2]} - 510"
   height=${geometry[3]}
   hc pad $i 16
   sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y -fn $font &
   let "x= $x + $width"
-  i3status -c $dir/i3status.conf | dzen2 -bg $light_bg -w 110 -ta l -h 16 -x $x -y $y -fn $font &
+  conky -c $dir/conkyrc | dzen2 -bg $light_bg -w 510 -ta l -h 16 -x $x -y $y -fn $font &
   if [ "$i" -eq "0" ] ; then
     let "x=$x - 20"
     sleep .1
