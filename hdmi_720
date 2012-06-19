@@ -1,0 +1,15 @@
+#!/bin/bash
+
+###                                          ###
+## my hd tv doesnt disply the entier image    ##
+## so this shrinks the monitor so it all fits ##
+##                                           ###
+
+
+dir=~/.config/herbstluftwm/
+function hc() {
+    herbstclient "$@"
+}
+
+hc move_monitor 1 1220x680+1950+20
+sh $dir/bar.sh
