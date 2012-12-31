@@ -15,7 +15,7 @@ fi
 # geometry has the format: WxH+X+Y
 x=${geometry[0]}
 y=${geometry[1]}
-panel_width=${geometry[2]}
+let "panel_width= ${geometry[2]}-64"
 panel_height=16
 font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
 bgcolor=$COLOR0
@@ -126,5 +126,3 @@ herbstclient pad $monitor $panel_height
         done
 } 2> /dev/null | dzen2 -w $panel_width -x $x -y $y -fn "$font" -h $panel_height \
     -ta l -bg "$bgcolor" -fg "$COLOR11"
-
-
