@@ -1,11 +1,14 @@
 #!/bin/bash
 # autostart
 
+~/.scripts/change_background_mk2 ~/backgrounds
+source ~/.colors
+
 # starting to breakout the theme config vareables
 font="iceland-11"
-bg_dark="#2c2c2c"
-green="#56e202"
-terminal="gnome-terminal"
+#bg_dark="#2c2c2c" a dark grey
+bg_dark="$COLOR0"
+terminal="urxvt"
 
 # this is a simple config for herbstluftwm
 dir=~/.config/herbstluftwm/
@@ -19,14 +22,8 @@ hc emit_hook reload
 hc lock
 hc detect_monitors
 
+#awsetbg -r ~/backgrounds/ # pick a random background
 
-#monitors
-sh $dir/xrandr_set_monitor.sh # if xrandr is set will make one screen for each monitor
-awsetbg ~/backgrounds/ -r # pick a random background
-
-# Bars
-sh $dir/bar.sh # will add a clock and workspace bar to every screen
-               # and a stalone tray for the main screen (the 0th screen)
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -37,7 +34,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn $terminal
-hc keybind $Mod-d spawn dmenu_run -fn $font -nb $bg_dark -sb $green -sf '#000000'
+hc keybind $Mod-d spawn dmenu_run -fn $font -nb $bg_dark -sb $COLOR2 -sf '#000000'
 hc keybind $Mod-Control-r spawn $dir/rename_tag # spawns dmenu to change name of tag
 hc keybind $Mod-0 spawn $dir/padding
 
@@ -96,20 +93,24 @@ hc keybind $Mod-Shift-h shift left
 hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
+hc keybind $Mod-Shift-i rotate
 
 # settings
 hc set focus_follows_mouse 1
+hc set raise_on_click 1
+hc set raise_on_focus 0
+hc set raise_on_focus_temporarily 0
 
 # colors
-hc set frame_border_active_color '#2c2c2c'
-hc set frame_border_normal_color '#121212'
-hc set frame_bg_normal_color '#000000'
-hc set frame_bg_active_color '#000000'
-hc set frame_border_width 1
+hc set frame_border_width 0
 hc set window_border_width 2
-hc set frame_bg_transparent 1
-hc set window_border_active_color '#cf015e'
+hc set window_border_active_color "$COLOR9"
 hc set window_border_normal_color '#444444'
+hc set frame_gap 4
+
+hc set frame_bg_transparent 1
+hc set frame_active_opacity 1
+hc set frame_normal_opacity 1
 
 # rules
 hc unrule -F
@@ -123,3 +124,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
 
 hc unlock
+# Bars
+#sh $dir/bar.sh # will add a clock and workspace bar to every screen
+               # and a stalone tray for the main screen (the 0th screen)
+$dir/panel.sh

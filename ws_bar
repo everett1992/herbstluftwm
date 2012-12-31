@@ -7,9 +7,6 @@
 ## currently supports clicking on tag names to switch tags      ##
 ###                                                            ###
 
-bg_empty="#2c2c2c" # light grey
-bg_focus="#cf015e" # pink
-bg_occup="#1c1c1c" # dark grey
 monitor=$1
 
 while [ ! -t 1 ] # close if not piped anywhere, or pipe is exited
@@ -24,15 +21,15 @@ do
 
     # set tag colors
     if [ "$char" == ":" ] ; then # occupied unfocused tag
-      tag="^fg(#87FF00) $tag ^fg()"
+      tag="^fg("$COLOR2") $tag ^fg()"
     elif [ "$char" == "#" ] || [ "$char" == "+" ]; then # tag on this monitor
       clients=`herbstclient dump $name`
       if [[ "$clients" == *':0)'* ]] ; then
         tag="^fg()$tag"
       else
-        tag="^fg(#87FF00)$tag"
+        tag="^fg("$COLOR2")$tag"
       fi
-      tag="^fg(#D7005F)[$tag^fg(#D7005F)]^fg()"
+      tag="^fg("$COLOR13")[$tag^fg("$COLOR13")]^fg()"
     elif [ "$char" == '.' ] ; then # empty tag
       tag="^fg() $tag "
     elif [ "$char" == "-" ] || [ "$char" == "%" ]; then # tag on the other monitor
@@ -40,7 +37,7 @@ do
       if [[ "$clients" == *':0)'* ]] ; then
         tag="^fg()$tag"
       else
-        tag="^fg(#87FF00)$tag"
+        tag="^fg("$COLOR2")$tag"
       fi
       tag="^fg()[$tag^fg()]^fg()"
     elif [ "$char" == '.' ] ; then # empty tag

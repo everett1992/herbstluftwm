@@ -7,10 +7,8 @@
 ###                                               ###
 
 font="iceland-11"
-dark_bg="#121212"
-light_bg="#2c2c2c"
-light_light="#5f5f5f"
-green="#56e202"
+light_bg="$COLOR0"
+green="$COLOR2"
 
 dir=~/.config/herbstluftwm/
 
@@ -18,19 +16,19 @@ function hc() {
     herbstclient "$@"
 }
 
-killall stalonetray i3status dzen2
+killall stalonetray dzen2
 
 for i in `hc list_monitors| egrep '^[0-9]' -o`
 do
   geometry=( $(hc monitor_rect $i ) )
   x=${geometry[0]}
   y=${geometry[1]}
-  let "width= ${geometry[2]} - 510"
+  let "width= ${geometry[2]} - 810"
   height=${geometry[3]}
   hc pad $i 16
   sh $dir/ws_bar $i | dzen2 -bg $light_bg  -ta l -w $width -h 16 -x $x -y $y -fn $font &
   let "x= $x + $width"
-  conky -c $dir/conkyrc | dzen2 -bg $light_bg -w 510 -ta l -h 16 -x $x -y $y -fn $font &
+  conky -c $dir/conkyrc | dzen2 -bg $light_bg -w 810 -ta l -h 16 -x $x -y $y -fn $font &
   if [ "$i" -eq "0" ] ; then
     let "x=$x - 20"
     sleep .1

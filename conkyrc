@@ -4,21 +4,28 @@ out_to_x no
 update_interval 1.0
 total_run_times 0
 use_spacer none
+mpd_host localhost
 
 TEXT
-^fg(\#87FF00)\
-case: \
-^fg(\#D7005F)\
+^fg(\#87FF00) case: ^fg(\#D7005F)\
 ${hwmon 0 temp 1}^fg()°C \
-^fg(\#87FF00)\
-cpu: \
-^fg(\#D7005F)\
+^fg(\#87FF00) cpu: ^fg(\#D7005F)\
 ${hwmon 0 temp 2}^fg()°C ^fg(\#87FF00)| \
 ^fg(\#D7005F)\
 ${hwmon 0 temp 3}^fg()°C ^fg(\#87FF00)| \
 ^fg(\#D7005F)\
 ${hwmon 0 temp 4}^fg()°C ^fg(\#87FF00)| \
 ^fg(\#D7005F)\
-${hwmon 0 temp 5}^fg()°C  \
+${hwmon 0 temp 5}^fg()°C ^fg(\#87FF00)| \
+\
+^fg() data - ${fs_used_perc /mnt/data}% ^fg(\#87FF00)| \
+\
+^fg() ${downspeed eth0} down ^fg(\#87FF00)| \
+^fg() ${upspeed eth0} up ^fg(\#87FF00)| \
+\
+^fg() \
+$if_mpd_playing\
+${mpd_artist} - ${mpd_title} \
+$endif\
 ^p(_RIGHT)^p(-120)\
 ${time %a %b %d %I:%M}
