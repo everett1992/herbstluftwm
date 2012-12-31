@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd $1
+background=$(ls | shuf | head -n 1)
+echo $background
+awsetbg $background
+
+ln -f .$background.colors ~/.colors
+xrdb -merge .$background.Xres

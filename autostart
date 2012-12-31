@@ -1,7 +1,9 @@
 #!/bin/bash
 # autostart
 
-~/.scripts/change_background_mk2 ~/backgrounds
+dir=~/.config/herbstluftwm/
+
+sh $dir/change_background $dir/backgrounds
 source ~/.colors
 
 # starting to breakout the theme config vareables
@@ -10,8 +12,6 @@ font="iceland-11"
 bg_dark="$COLOR0"
 terminal="urxvt"
 
-# this is a simple config for herbstluftwm
-dir=~/.config/herbstluftwm/
 
 function hc() {
     herbstclient "$@"
@@ -125,6 +125,4 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
 hc unlock
 # Bars
-#sh $dir/bar.sh # will add a clock and workspace bar to every screen
-               # and a stalone tray for the main screen (the 0th screen)
 $dir/panel.sh
