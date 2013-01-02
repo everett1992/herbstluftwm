@@ -8,8 +8,6 @@ source ~/.colors
 
 # starting to breakout the theme config vareables
 font="iceland-11"
-#bg_dark="#2c2c2c" a dark grey
-bg_dark="$COLOR0"
 terminal="urxvt"
 
 
@@ -35,7 +33,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn $terminal
-hc keybind $Mod-d spawn dmenu_run -fn $font -nb $bg_dark -sb $COLOR2 -sf '#000000'
+hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
 hc keybind $Mod-Control-r spawn $dir/rename_tag # spawns dmenu to change name of tag
 hc keybind $Mod-0 spawn $dir/padding
 hc keybind $Mod-m spawn $dir/cmus_controll.sh
