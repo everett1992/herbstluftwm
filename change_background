@@ -1,9 +1,10 @@
 #!/bin/bash
 
-cd $1
-background=$(ls | shuf | head -n 1)
+background=$(find $1 -type f \( -name '*.jpg' -o -name '*.png' \) -print0 | shuf -n1 -z | xargs -0)
+filename=$(basename $background)
+dirname=$(dirname $background)
 echo $background
-awsetbg $background
+feh --bg-scale $background
 
-ln -f .$background.colors ~/.colors
-xrdb -merge .$background.Xres
+ln -f $dirname/.$filename.colors ~/.colors
+xrdb -merge $dirname/.$filename.Xres
