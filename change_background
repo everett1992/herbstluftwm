@@ -3,7 +3,7 @@
 cd $1
 background=$(ls | shuf | head -n 1)
 echo $background
-awsetbg $background
+feh --bg-scale $background
 
 ln -f .$background.colors ~/.colors
 xrdb -merge .$background.Xres
