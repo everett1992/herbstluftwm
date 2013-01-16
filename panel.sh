@@ -17,11 +17,7 @@ x=${geometry[0]}
 y=${geometry[1]}
 let "panel_width= ${geometry[2]}-64"
 panel_height=16
-<<<<<<< HEAD
-font="-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
-=======
 font="-*-terminus-medium-*-*-*-10-*-*-*-*-*-*-*"
->>>>>>> 72fed29dac2b8f58664629a2351b6a082335b99e
 bgcolor=$COLOR0
 selbg=$COLOR2
 selfg="#000000"
