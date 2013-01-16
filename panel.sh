@@ -17,10 +17,14 @@ x=${geometry[0]}
 y=${geometry[1]}
 let "panel_width= ${geometry[2]}-64"
 panel_height=16
+<<<<<<< HEAD
 font="-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"
+=======
+font="-*-terminus-medium-*-*-*-10-*-*-*-*-*-*-*"
+>>>>>>> 72fed29dac2b8f58664629a2351b6a082335b99e
 bgcolor=$COLOR0
-selbg=$COLOR9
-selfg=$COLOR8
+selbg=$COLOR2
+selfg="#000000"
 
 ####
 # Try to find textwidth binary.
@@ -82,7 +86,8 @@ herbstclient pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $date $separator"
+        battery="^fg(#909090)bat: ^fg(#efefef)`acpi -b | grep [0-9]*% -o`"
+        right="$separator^bg() $battery $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right"|sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")

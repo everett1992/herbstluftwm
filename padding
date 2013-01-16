@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.colors
+
 dir=~/.config/herbstluftwm/
 source ~/.colors
 

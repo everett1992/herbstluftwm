@@ -1,6 +1,8 @@
 #!/bin/bash
 # rename_tag
 
+source ~/.colors
+
 ###                                                 ###
 ## Script to rename tag without breaking keybindings ##
 ##                                                   ##
@@ -21,7 +23,7 @@ use=`hc list_keybinds | egrep use[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 move=`hc list_keybinds | egrep move[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 
 # get the name of the new tag
-new_tag=`dmenu -fn iceland-11 -nb '#2c2c2c' -sb '#56e202' -sf '#000000' < $dir/cache/tags`
+new_tag=`dmenu -fn iceland-11 -nb "$COLOR0" -sb "$COLOR0" -sf '#000000' < $dir/cache/tags`
 
 if [ "$new_tag" != "" ] ; then
   echo $new_tag > $dir/cache/tags.tmp
