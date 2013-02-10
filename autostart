@@ -29,8 +29,10 @@ hc keyunbind --all
 # keybindings
 Mod=Mod4
 hc keybind $Mod-Alt-q quit
+hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Alt-c close_or_remove
+hc keybind $Mod-Shift-c close_or_remove
 hc keybind $Mod-Return spawn $terminal
 hc keybind $Mod-c spawn $browser
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
@@ -50,6 +52,7 @@ for i in ${!TAG_NAMES[@]} ; do
     if ! [ -z "$key" ] ; then
         hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
         hc keybind "$Mod-Alt-$key" move "${TAG_NAMES[$i]}"
+        hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
     fi
 done
 
@@ -90,10 +93,15 @@ hc keybind $Mod-j focus down
 hc keybind $Mod-k focus up
 hc keybind $Mod-l focus right
 hc keybind $Mod-Alt-h shift left
+hc keybind $Mod-Shift-h shift left
 hc keybind $Mod-Alt-j shift down
+hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Alt-k shift up
+hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Alt-l shift right
+hc keybind $Mod-Shift-l shift right
 hc keybind $Mod-Alt-i rotate
+hc keybind $Mod-Shift-i rotate
 
 # settings
 hc set focus_follows_mouse 1
