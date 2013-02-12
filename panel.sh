@@ -55,6 +55,7 @@ herbstclient pad $monitor $panel_height
     visible=true
     date=""
     windowtitle=""
+    battery=""
     while true ; do
         bordercolor="#26221C"
         separator="^bg()^fg($selbg)|"

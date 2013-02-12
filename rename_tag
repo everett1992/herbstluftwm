@@ -14,6 +14,7 @@ dir=/home/caleb/.config/herbstluftwm/
 function hc() {
     herbstclient "$@"
 }
+font="terminus-10"
 
 # these should be simplified
 # get current tag
@@ -23,7 +24,7 @@ use=`hc list_keybinds | egrep use[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 move=`hc list_keybinds | egrep move[[:space:]]*$tag | egrep -o '^[^[:space:]]*'`
 
 # get the name of the new tag
-new_tag=`dmenu -fn iceland-11 -nb "$COLOR0" -sb "$COLOR0" -sf '#000000' < $dir/cache/tags`
+new_tag=`dmenu -fn $font -nb "$COLOR0" -sb "$COLOR0" -sf '#000000' < $dir/cache/tags`
 
 if [ "$new_tag" != "" ] ; then
   echo $new_tag > $dir/cache/tags.tmp

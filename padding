@@ -8,6 +8,7 @@ source ~/.colors
 function hc() {
     herbstclient "$@"
 }
+font="terminus-10"
 
-hc set frame_gap `echo -e "0\n6\n10\n16\n" | dmenu -fn iceland-11 -nb "$COLOR0" -sb "$COLOR2" -sf '#000000'`
+hc set frame_gap `echo -e "0\n6\n10\n16\n" | dmenu -fn $font -nb "$COLOR0" -sb "$COLOR2" -sf '#000000'`
 
