@@ -7,7 +7,7 @@ sh $dir/change_background $dir/backgrounds
 source ~/.colors
 
 # starting to breakout the theme config vareables
-font="terminus-10"
+font="terminus-9"
 terminal="urxvt"
 browser="chrome"
 

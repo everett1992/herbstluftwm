@@ -14,7 +14,7 @@ dir=/home/caleb/.config/herbstluftwm/
 function hc() {
     herbstclient "$@"
 }
-font="terminus-10"
+font="terminus-9"
 
 # these should be simplified
 # get current tag
