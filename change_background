@@ -7,4 +7,5 @@ echo $background
 feh --bg-scale $background
 
 ln -f $dirname/.$filename.colors ~/.colors
-xrdb -merge $dirname/.$filename.Xres
+xrdb $dirname/.$filename.Xres
+#xrdb ./solarized.Xres
