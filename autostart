@@ -28,21 +28,19 @@ hc keyunbind --all
 
 # keybindings
 Mod=Mod4
-hc keybind $Mod-Alt-q quit
-hc keybind $Mod-Shift-q quit
+hc keybind $Mod-Alt-Delete quit
+hc keybind $Mod-Shift-Delete quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Alt-c close_or_remove
-hc keybind $Mod-Shift-c close_or_remove
+hc keybind $Mod-Alt-w close_or_remove
+hc keybind $Mod-Shift-w close_or_remove
 hc keybind $Mod-Return spawn $terminal
-hc keybind $Mod-c spawn $browser
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
-hc keybind $Mod-Control-r spawn $dir/rename_tag # spawns dmenu to change name of tag
 hc keybind $Mod-0 spawn $dir/padding
 hc keybind $Mod-m spawn $dir/cmus_controll.sh
 
 # tags
-TAG_NAMES=( {1..9} )
-TAG_KEYS=( {1..9} 0 )
+TAG_NAMES=( z x c v b n m \, \. )
+TAG_KEYS=( z x c v b n m comma period )
 
 hc set default_frame_layout 1
 hc rename default "${TAG_NAMES[0]}" || true
@@ -56,10 +54,7 @@ for i in ${!TAG_NAMES[@]} ; do
     fi
 done
 
-# it's quite possible i've misuderstood something fundamental about herb
-# this script removes the extra tags added when you reload autostart
-# and readds bindings to any tags you renamed
-sh $dir/reset_bindings $Mod &
+hc keybind $Mod-a use_previous
 
 # layouting
 hc keybind $Mod-r remove
