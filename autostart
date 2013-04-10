@@ -8,7 +8,7 @@ source ~/.colors
 
 # starting to breakout the theme config vareables
 font="terminus-9"
-terminal="urxvt"
+terminal="urxvt -e bash -c tmux"
 browser="chromium"
 
 
