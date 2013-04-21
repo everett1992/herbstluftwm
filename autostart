@@ -39,8 +39,8 @@ hc keybind $Mod-0 spawn $dir/padding
 hc keybind $Mod-m spawn $dir/cmus_controll.sh
 
 # tags
-TAG_NAMES=( z x c v b n m \, \. )
-TAG_KEYS=( z x c v b n m comma period )
+TAG_NAMES=( {1..9} )
+TAG_KEYS=( {1..9} 0 )
 
 hc set default_frame_layout 1
 hc rename default "${TAG_NAMES[0]}" || true
