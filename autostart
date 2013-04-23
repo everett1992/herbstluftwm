@@ -28,11 +28,9 @@ hc keyunbind --all
 
 # keybindings
 Mod=Mod4
-hc keybind $Mod-Alt-Delete quit
-hc keybind $Mod-Shift-Delete quit
-hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Alt-w close_or_remove
-hc keybind $Mod-Shift-w close_or_remove
+hc keybind Control-Alt-Delete quit
+hc keybind $Mod-Control-r reload
+hc keybind $Mod-w close_or_remove
 hc keybind $Mod-Return spawn $terminal
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
 hc keybind $Mod-0 spawn $dir/padding
@@ -40,7 +38,7 @@ hc keybind $Mod-m spawn $dir/cmus_controll.sh
 
 # tags
 TAG_NAMES=( z x c v b n m \, \. )
-TAG_KEYS=( z x c v b n m comma period )
+TAG_KEYS=( z x c v b n m comma period  )
 
 hc set default_frame_layout 1
 hc rename default "${TAG_NAMES[0]}" || true
