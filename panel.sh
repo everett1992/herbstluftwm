@@ -17,7 +17,7 @@ x=${geometry[0]}
 y=${geometry[1]}
 let "panel_width= ${geometry[2]}-64"
 panel_height=16
-font="-*-terminus-medium-*-*-*-10-*-*-*-*-*-*-*"
+font="-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
 bgcolor=$COLOR0
 selbg=$COLOR2
 selfg="#000000"
@@ -44,7 +44,7 @@ herbstclient pad $monitor $panel_height
     # events:
     #mpc idleloop player &
     while true ; do
-        date +'date ^fg(#efefef)%I:%M^fg(#909090), %Y-%m-^fg(#efefef)%d'
+        date +'date ^fg(#9f9f9f)%I:%M^fg(#909090), %Y-%m-^fg(#9f9f9f)%d'
         sleep 1 || break
     done > >(uniq_linebuffered)  &
     childpid=$!
@@ -83,8 +83,9 @@ herbstclient pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        battery="^fg(#909090)bat: ^fg(#efefef)`acpi -b | grep [0-9]*% -o`"
-        right="$separator^bg() $battery $separator^bg() $date $separator"
+        battery="^fg(#909090)bat: ^fg(#9f9f9f)`acpi -b | grep [0-9]*% -o`"
+				current_workspace="^fg(#9f9f9f)`readlink ~/current_workspace`"
+				right="$separator^bg() ^fg(#909090)~/$current_workspace $separator^bg() $battery $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right"|sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only |    ")
