@@ -32,7 +32,7 @@ hc keybind Control-Alt-Delete quit
 hc keybind $Mod-Control-r reload
 hc keybind $Mod-w close_or_remove
 hc keybind $Mod-Shift-Return spawn $terminal
-hc keybind $Mod-Return spawn $terminal -cd ~/current_workspace
+hc keybind $Mod-Return spawn $terminal
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
 hc keybind $Mod-0 spawn $dir/padding
 hc keybind $Mod-m spawn $dir/cmus_controll.sh

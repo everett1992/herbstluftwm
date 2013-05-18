@@ -84,8 +84,7 @@ herbstclient pad $monitor $panel_height
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
         battery="^fg(#909090)bat: ^fg(#9f9f9f)`acpi -b | grep [0-9]*% -o`"
-				current_workspace="^fg(#9f9f9f)`readlink ~/current_workspace`"
-				right="$separator^bg() ^fg(#909090)~/$current_workspace $separator^bg() $battery $separator^bg() $date $separator"
+				right="$separator^bg() $battery $separator^bg() $date $separator"
         right_text_only=$(echo -n "$right"|sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only |")
