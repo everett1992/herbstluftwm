@@ -128,6 +128,4 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 hc unlock
 hc unlock
 # Bars
-$dir/panel.sh &
-killall stalonetray # don't do this
-stalonetray --geometry 4x1-0+0 --grow-gravity NE --icon-gravity NE --icon-size 16 --max-geometry 4x1 -bg "$COLOR0" &
+$dir/panel2.sh &
