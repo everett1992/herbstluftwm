@@ -5,8 +5,6 @@ dir=~/.config/herbstluftwm/
 
 sh $dir/change_background $dir/backgrounds
 source ~/.colors
-
-# starting to breakout the theme config vareables
 font="terminus-10"
 terminal="urxvt"
 browser="chromium"
@@ -31,11 +29,9 @@ Mod=Mod4
 hc keybind Control-Alt-Delete quit
 hc keybind $Mod-Control-r reload
 hc keybind $Mod-w close_or_remove
-hc keybind $Mod-Shift-Return spawn $terminal
 hc keybind $Mod-Return spawn $terminal
 hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
 hc keybind $Mod-0 spawn $dir/padding
-hc keybind $Mod-m spawn $dir/cmus_controll.sh
 
 # tags
 TAG_NAMES=( z x c v b n m \, \. )
@@ -48,7 +44,6 @@ for i in ${!TAG_NAMES[@]} ; do
     key="${TAG_KEYS[$i]}"
     if ! [ -z "$key" ] ; then
         hc keybind "$Mod-$key" use "${TAG_NAMES[$i]}"
-        hc keybind "$Mod-Alt-$key" move "${TAG_NAMES[$i]}"
         hc keybind "$Mod-Shift-$key" move "${TAG_NAMES[$i]}"
     fi
 done
@@ -59,7 +54,7 @@ hc keybind $Mod-a use_previous
 hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
 hc keybind $Mod-u split vertical 0.5
-hc keybind $Mod-o split horizontal 0.5
+hc keybind $Mod-o spawn $dir/split horizontal 0.62
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
@@ -86,15 +81,10 @@ hc keybind $Mod-h focus left
 hc keybind $Mod-j focus down
 hc keybind $Mod-k focus up
 hc keybind $Mod-l focus right
-hc keybind $Mod-Alt-h shift left
 hc keybind $Mod-Shift-h shift left
-hc keybind $Mod-Alt-j shift down
 hc keybind $Mod-Shift-j shift down
-hc keybind $Mod-Alt-k shift up
 hc keybind $Mod-Shift-k shift up
-hc keybind $Mod-Alt-l shift right
 hc keybind $Mod-Shift-l shift right
-hc keybind $Mod-Alt-i rotate
 hc keybind $Mod-Shift-i rotate
 
 # settings
@@ -128,4 +118,4 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 hc unlock
 hc unlock
 # Bars
-$dir/panel2.sh &
+$dir/panel/panel.sh &
