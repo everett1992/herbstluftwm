@@ -37,4 +37,4 @@ herbstclient --idle 2>/dev/null | {
         esac
     done
 } | dzen2 -h 16 -fn "$dzen_fn" -ta l -sa l \
-          -w 162 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button3='
+          -w 362 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button3='
