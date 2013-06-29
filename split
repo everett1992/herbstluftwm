@@ -15,10 +15,4 @@ elif [[ "$1" == "vertical" ]]; then
   direction="down"
 fi
 
-hc lock
-
-echo $1 $2 $direction
-hc split $1 $2
-hc shift -e $direction
-
-hc unlock
+hc chain , split $1 $2 , shift -e $direction
