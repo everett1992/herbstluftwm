@@ -5,10 +5,7 @@ dir=~/.config/herbstluftwm/
 
 sh $dir/change_background $dir/backgrounds
 source ~/.colors
-font="terminus-10"
-terminal="urxvt"
-browser="chromium"
-
+source $dir/config
 
 function hc() {
     herbstclient "$@"
@@ -24,20 +21,11 @@ hc detect_monitors
 # remove all existing keybindings
 hc keyunbind --all
 
-# keybindings
-Mod=Mod4
-hc keybind Control-Alt-Delete quit
-hc keybind $Mod-Control-r reload
-hc keybind $Mod-w close_or_remove
-hc keybind $Mod-Return spawn $terminal
-hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
-hc keybind $Mod-0 spawn $dir/padding
-
 # tags
 TAG_NAMES=( z x c v b n m \, \. )
 TAG_KEYS=( z x c v b n m comma period  )
 
-hc set default_frame_layout 1
+hc set default_frame_layout $default_frame_layout
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
     hc add "${TAG_NAMES[$i]}"
@@ -48,17 +36,29 @@ for i in ${!TAG_NAMES[@]} ; do
     fi
 done
 
-hc keybind $Mod-a use_previous
+# Quit or Reload
+hc keybind Control-Alt-Delete quit
+hc keybind $Mod-Control-r reload
+
+# Closing or opening programs
+hc keybind $Mod-w close_or_remove
+hc keybind $Mod-Return spawn $terminal
+hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
+
+
+
 
 # layouting
+hc keybind $Mod-a use_previous
 hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
-hc keybind $Mod-u spawn $dir/split vertical 0.82
-hc keybind $Mod-o spawn $dir/split horizontal 0.62
+hc keybind $Mod-u spawn $dir/split vertical $vertical_split
+hc keybind $Mod-o spawn $dir/split horizontal $horizontal_split
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 hc keybind $Mod-i spawn $dir/sidebar.sh
+hc keybind $Mod-0 spawn $dir/padding
 
 # resizing
 RESIZESTEP=0.05
@@ -87,22 +87,23 @@ hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 hc keybind $Mod-Shift-i rotate
 
-# settings
-hc set focus_follows_mouse 1
-hc set raise_on_click 1
-hc set raise_on_focus 0
-hc set raise_on_focus_temporarily 0
 
 # colors
-hc set frame_border_width 0
-hc set window_border_width 2
 hc set window_border_active_color "$COLOR9"
 hc set window_border_normal_color '#444444'
-hc set frame_gap 4
 
-hc set frame_bg_transparent 1
-hc set frame_active_opacity 1
-hc set frame_normal_opacity 1
+# settings
+hc set focus_follows_mouse $focus_follows_mouse 
+hc set raise_on_click $raise_on_click 
+hc set raise_on_focus $raise_on_focus 
+hc set raise_on_focus_temporarily $raise_on_focus_temporarily 
+
+hc set frame_gap $frame_gap 
+hc set frame_border_width $frame_border_width 
+hc set window_border_width $window_border_width 
+hc set frame_bg_transparent $frame_bg_transparent 
+hc set frame_active_opacity $frame_active_opacity 
+hc set frame_normal_opacity $frame_normal_opacity 
 
 # rules
 hc unrule -F
