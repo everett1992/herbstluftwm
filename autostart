@@ -53,7 +53,7 @@ hc keybind $Mod-a use_previous
 # layouting
 hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
-hc keybind $Mod-u spawn $dir/split vertical 0.62
+hc keybind $Mod-u spawn $dir/split vertical 0.82
 hc keybind $Mod-o spawn $dir/split horizontal 0.62
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
