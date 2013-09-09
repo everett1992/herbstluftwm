@@ -87,6 +87,11 @@ hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 hc keybind $Mod-Shift-i rotate
 
+hc keybind $Mod-Alt-h spawn $dir/swap left
+hc keybind $Mod-Alt-j spawn $dir/swap down
+hc keybind $Mod-Alt-k spawn $dir/swap up
+hc keybind $Mod-Alt-l spawn $dir/swap right
+
 
 # colors
 hc set window_border_active_color "$COLOR9"

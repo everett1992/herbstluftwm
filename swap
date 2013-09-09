@@ -1,0 +1,57 @@
+#!/bin/bash
+# Like hc's move command, but the moved window is replaced
+
+function hc() {
+    herbstclient "$@"
+}
+
+function lock() {
+ hc lock
+}
+function unlock() {
+  hc unlock
+}
+
+function op() {
+  if [[ "$1" = "left" ]]; then
+    echo "right"
+    return
+  fi
+  if [[ "$1" = "right" ]]; then
+    echo "left"
+    return
+  fi
+  if [[ "$1" = "up" ]]; then
+    echo "down"
+    return
+  fi
+  if [[ "$1" = "down" ]]; then
+    echo "up"
+    return
+  fi
+}
+
+if [[ "$1" != "left" && "$1" != "right" && "$1" != "up" && "$1" != "down" ]]; then
+  exit 1
+fi
+
+lock
+
+trap unlock EXIT
+# Get id of current window
+prime_winid=$(hc attr clients.focus.winid)
+# focus direction
+hc focus -e $1
+
+if [ $? -ne 0 ]; then
+  exit
+fi
+
+# move opposite direction
+hc shift -e $(op $1)
+# focus origional window
+hc bring $prime_winid
+# move direction
+hc shift -e $1
+
+unlock
