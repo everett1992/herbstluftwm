@@ -12,46 +12,27 @@ function unlock() {
   hc unlock
 }
 
-function op() {
-  if [[ "$1" = "left" ]]; then
-    echo "right"
-    return
-  fi
-  if [[ "$1" = "right" ]]; then
-    echo "left"
-    return
-  fi
-  if [[ "$1" = "up" ]]; then
-    echo "down"
-    return
-  fi
-  if [[ "$1" = "down" ]]; then
-    echo "up"
-    return
-  fi
-}
-
 if [[ "$1" != "left" && "$1" != "right" && "$1" != "up" && "$1" != "down" ]]; then
   exit 1
 fi
 
 lock
-
 trap unlock EXIT
+
 # Get id of current window
 prime_winid=$(hc attr clients.focus.winid)
-# focus direction
-hc focus -e $1
+
+# focus window to switch with
+hc focus $1
 
 if [ $? -ne 0 ]; then
-  exit
+  exit 1
 fi
 
-# move opposite direction
-hc shift -e $(op $1)
-# focus origional window
-hc bring $prime_winid
-# move direction
-hc shift -e $1
+next_winid=$(hc attr clients.focus.winid)
+
+layout=$(hc dump)
+echo "$layout"
+hc load "$(echo "$layout" | sed -e "s/$prime_winid/TOKEN/g; s/$next_winid/$prime_winid/g; s/TOKEN/$next_winid/g")"
 
 unlock
