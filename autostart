@@ -101,13 +101,15 @@ hc set window_border_normal_color '#444444'
 hc set default_frame_layout $default_frame_layout
 
 hc set focus_follows_mouse $focus_follows_mouse 
+hc set focus_stealing_prevention 0
 hc set raise_on_click $raise_on_click 
 hc set raise_on_focus $raise_on_focus 
 hc set raise_on_focus_temporarily $raise_on_focus_temporarily 
 
-hc set frame_gap $frame_gap 
+hc set window_gap $window_gap
 hc set frame_border_width $frame_border_width 
 hc set window_border_width $window_border_width 
+hc set window_border_inner_width $window_border_inner_width 
 hc set frame_bg_transparent $frame_bg_transparent 
 hc set frame_active_opacity $frame_active_opacity 
 hc set frame_normal_opacity $frame_normal_opacity 
