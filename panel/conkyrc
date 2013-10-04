@@ -20,7 +20,7 @@ TEXT
 ${time %a %b %d} \
 | \
 ${exec /home/caleb/.dzen/scripts/bar_battery.sh} \
-${battery_percent}% \
+^fg(${exec /home/caleb/.dzen/scripts/colors 10})${battery_percent}%^fg() \
 | \
 ^i(/home/caleb/.dzen/icons/diskette.xbm) \
 ${fs_used_perc}% \

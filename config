@@ -7,7 +7,7 @@ export terminal="urxvt"
 export browser="chromium"
 
 
-export default_frame_layout=l
+export default_frame_layout=1
 
 export focus_follows_mouse=1
 export raise_on_click=1
