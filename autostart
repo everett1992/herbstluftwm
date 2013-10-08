@@ -107,6 +107,9 @@ hc set raise_on_focus $raise_on_focus
 hc set raise_on_focus_temporarily $raise_on_focus_temporarily 
 
 hc set window_gap $window_gap
+hc set frame_gap $frame_gap
+hc set frame_padding $frame_padding
+
 hc set frame_border_width $frame_border_width 
 hc set window_border_width $window_border_width 
 hc set window_border_inner_width $window_border_inner_width 
