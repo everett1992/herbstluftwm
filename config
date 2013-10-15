@@ -18,8 +18,8 @@ export frame_border_width=0
 export window_border_width=3
 export window_border_inner_width=0
 
-export window_gap=6
-export frame_gap=0
+export window_gap=0
+export frame_gap=6
 export frame_padding=0
 
 export frame_bg_transparent=1
