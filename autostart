@@ -4,7 +4,7 @@
 
 dir=~/.config/herbstluftwm/
 
-sh $dir/change_background $dir/backgrounds
+~/.bin/wp change
 source ~/.colors
 source $dir/config
 
