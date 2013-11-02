@@ -18,14 +18,13 @@ TEXT
 ^fg(${exec /home/caleb/.dzen/scripts/colors 10})${time %I:%M%P}^fg() \
 ^i(/home/caleb/.dzen/icons/calendar.xbm) \
 ${time %a %b %d} \
+${if_existing /proc/acpi/battery/BAT0/state} \
 | \
 ${exec /home/caleb/.dzen/scripts/bar_battery.sh} \
 ^fg(${exec /home/caleb/.dzen/scripts/colors 10})${battery_percent}%^fg() \
+${endif} \
 | \
 ^i(/home/caleb/.dzen/icons/diskette.xbm) \
 ${fs_used_perc}% \
 | \
 ${exec /home/caleb/.dzen/scripts/bar_vol.sh}% \
-| \
-${exec /home/caleb/.dzen/scripts/bar_wifi.sh wlp3s0} \
-${wireless_essid wlp3s0} \
