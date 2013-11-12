@@ -28,3 +28,6 @@ export frame_normal_opacity=1
 
 export vertical_split=0.82
 export horizontal_split=0.62
+
+export vertical_split_i=0.18
+export horizontal_split_i=0.38
