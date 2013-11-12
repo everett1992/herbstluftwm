@@ -22,6 +22,8 @@ TAG_NAMES=( z x c v b n m )
 TAG_KEYS=( z x c v b n m )
 
 
+hc set default_frame_layout $default_frame_layout
+
 hc rename default "${TAG_NAMES[0]}" || true
 for i in ${!TAG_NAMES[@]} ; do
     hc add "${TAG_NAMES[$i]}"
@@ -134,7 +136,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' \
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK)' manage=off
 
-hc rule pseudotile=on
+hc rule class=URxvt pseudotile=on
 
 # unlock, just to be sure
 hc unlock
