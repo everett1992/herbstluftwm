@@ -22,7 +22,7 @@ export window_gap=6
 export frame_gap=0
 export frame_padding=0
 
-export frame_bg_transparent=1
+export frame_bg_transparent=0
 export frame_active_opacity=1
 export frame_normal_opacity=1
 
