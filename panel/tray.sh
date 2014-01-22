@@ -1,8 +1,13 @@
 #!/bin/bash
 
 source ~/.colors
-killall trayer
-COLOR0=`echo $COLOR0 | sed 's/#/0x/'`
-trayer --edge top --align right --widthtype request --heighttype pixel \
-       --height 16 --expand true --tint $COLOR0 --transparent true \
-       --alpha 0
+
+mon_num=${1:-0}
+width=${2:-0}
+height=${3:-0}
+x=${4:-0}
+y=${5:-0}
+
+let x_offset=$x+$width-16
+stalonetray -bg $COLOR0 --geometry 1x1+$x_offset+$y --grow-gravity NE \
+  --icon-size 16 --icon-gravity W --kludges force_icons_size
