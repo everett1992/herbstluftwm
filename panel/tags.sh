@@ -48,6 +48,7 @@ herbstclient --idle 2>/dev/null | {
         case "$hook" in
             tag*) tags=( $(herbstclient tag_status) ) ;;
             quit_panel*) exit ;;
+            reload*) exit ;;
         esac
     done
 } | dzen2 -h 16 -fn "$dzen_fn" -ta l -sa l \
