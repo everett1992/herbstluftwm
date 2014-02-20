@@ -99,6 +99,8 @@ hc keybind $Mod-Alt-j spawn $dir/swap down
 hc keybind $Mod-Alt-k spawn $dir/swap up
 hc keybind $Mod-Alt-l spawn $dir/swap right
 
+hc keybind $Mod-equal spawn dm-tool lock
+
 
 # colors
 hc set window_border_active_color "$COLOR9"
