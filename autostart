@@ -99,8 +99,17 @@ hc keybind $Mod-Alt-j spawn $dir/swap down
 hc keybind $Mod-Alt-k spawn $dir/swap up
 hc keybind $Mod-Alt-l spawn $dir/swap right
 
-hc keybind $Mod-equal spawn dm-tool lock
+# Lock screen
+hc keybind $Mod-F3 spawn dm-tool lock
 
+# Lower Backlight
+hc keybind $Mod-F8 spawn ~/.bin/backlight -15
+
+# Lower Backlight
+hc keybind $Mod-F9 spawn ~/.bin/backlight +15
+
+# Black Screen
+hc keybind $Mod-F4 spawn ~/.bin/darkness
 
 # colors
 hc set window_border_active_color "$COLOR9"
