@@ -9,10 +9,12 @@ if [[ "$1" -ne "horizontal" && "$1" -ne "vertical" ]]; then
   exit 1
 fi
 
-if [[ "$1" == "horizontal" ]]; then
-  direction="right"
-elif [[ "$1" == "vertical" ]]; then
+if [[ "$1" == "bottom" ]]; then
   direction="down"
+elif [[ "$1" == "top" ]]; then
+  direction="up"
+else
+  direction="$1"
 fi
 
 hc chain , split $1 $2 , shift -e $direction

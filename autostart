@@ -54,11 +54,11 @@ hc keybind $Mod-a use_previous
 hc keybind $Mod-r remove
 hc keybind $Mod-space cycle_layout 1
 
-hc keybind $Mod-u       spawn $dir/split vertical   $vertical_split
-hc keybind $Mod-o       spawn $dir/split horizontal $horizontal_split
+hc keybind $Mod-u       spawn $dir/split bottom   $vertical_split
+hc keybind $Mod-o       spawn $dir/split right $horizontal_split
 
-hc keybind $Mod-Shift-u       spawn $dir/split vertical $vertical_split_i
-hc keybind $Mod-Shift-o       spawn $dir/split horizontal $horizontal_split_i
+hc keybind $Mod-Shift-u       spawn $dir/split top $vertical_split_i
+hc keybind $Mod-Shift-o       spawn $dir/split left $horizontal_split_i
 
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
