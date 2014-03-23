@@ -41,7 +41,8 @@ hc keybind $Mod-Control-r reload
 # Closing or opening programs
 hc keybind $Mod-w close_or_remove
 hc keybind $Mod-Return spawn $terminal
-hc keybind $Mod-d spawn dmenu_run -fn $font -nb $COLOR0 -sb $COLOR2 -sf "#000000"
+dmenu="/usr/bin/dmenu -fn $font -nb '$COLOR0' -sb '$COLOR2' -sf '#000000'"
+hc keybind $Mod-d spawn j4-dmenu-desktop --dmenu="$dmenu"
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
