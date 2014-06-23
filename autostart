@@ -100,8 +100,13 @@ hc keybind $Mod-Alt-j spawn $dir/swap down
 hc keybind $Mod-Alt-k spawn $dir/swap up
 hc keybind $Mod-Alt-l spawn $dir/swap right
 
+# Black Screen
+hc keybind $Mod-F4 spawn ~/.bin/darkness
 # Lock screen
 hc keybind $Mod-F3 spawn dm-tool lock
+
+# Lock screen
+hc keybind $Mod-F5 spawn ~/.bin/reconnect
 
 # Lower Backlight
 hc keybind $Mod-F8 spawn ~/.bin/backlight -15
@@ -109,8 +114,8 @@ hc keybind $Mod-F8 spawn ~/.bin/backlight -15
 # Lower Backlight
 hc keybind $Mod-F9 spawn ~/.bin/backlight +15
 
-# Black Screen
-hc keybind $Mod-F4 spawn ~/.bin/darkness
+# Toggle workman and us standard layouts
+hc keybind $Mod-F6 spawn ~/.bin/toggle-workman
 
 # colors
 hc set window_border_active_color "$COLOR9"
