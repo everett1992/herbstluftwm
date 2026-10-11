@@ -64,6 +64,7 @@ hc keybind $Mod-Shift-o       spawn $dir/split left $horizontal_split_i
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-Shift-f attr clients.focus.floating toggle
 hc keybind $Mod-i spawn $dir/sidebar.sh
 hc keybind $Mod-0 spawn $dir/padding
 
