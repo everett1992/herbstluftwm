@@ -8,7 +8,7 @@ trap 'herbstclient emit_hook quit_panel' TERM
 herbstclient emit_hook quit_panel
 
 
-read -a mon <<< "$(hc list_monitors | head -n1 | sed 's/\([0-9]\)\+: \([0-9]\+\)x\([0-9]\+\)+\([0-9]\+\)+\([0-9]\+\).*/\1 \2 \3 \4 \5/')"
+read -a mon <<< "$(herbstclient list_monitors | head -n1 | sed 's/\([0-9]\)\+: \([0-9]\+\)x\([0-9]\+\)+\([0-9]\+\)+\([0-9]\+\).*/\1 \2 \3 \4 \5/')"
 #                                            ^            ^           ^           ^           ^ 
 #                                            0: mon_num   1: width    2: height   3: x_offset 4: y_offset
 
@@ -27,7 +27,7 @@ pids+=($!)
 dzen2 -fn "$dzen_fn" -x "${mon[3]}" -y "${mon[4]}" -h 16 -fg "$dzen_fg" -bg "$dzen_bg" -e 'button3=' < $fifo &
 pids+=($!)
 
-SLEEP 0.1 # dELAY THE START OF TRAY AND TAGS
+sleep 0.1 # Delay the start of tray and tags
 
 $panelfolder/tray.sh ${mon[@]} &
 pids+=($!)
