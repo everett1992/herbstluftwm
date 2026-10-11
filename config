@@ -3,8 +3,8 @@
 export Mod=Mod4
 
 export font="terminus-10"
-export terminal="urxvt"
-export browser="chromium"
+export terminal="alacritty"
+export browser="firefox"
 
 
 export default_frame_layout=3
